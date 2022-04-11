@@ -1,0 +1,52 @@
+<h2>Todos</h2>
+
+<table>
+  <tr>
+    <th>No.</th>
+    <th>Description</th>
+    <th>Due Date</th>
+    <th>Due Time</th>
+    <th class="iconHeader">Done</th>
+    <th class="iconHeader">Update</th>
+    <th class="iconHeader">Delete</th>
+  </tr>
+
+  <tr *ngFor="let todo of todos; let num = index">
+    <td>{{ num + 1 }}</td>
+    <td>{{ todo.description }}</td>
+    <td>{{ todo.date }}</td>
+    <td>{{ todo.time }}</td>
+    <td>
+      <div class="icon">
+        <input
+          type="checkbox"
+          [checked]="todo.completed"
+          (change)="onChange(todo)"
+        />
+      </div>
+    </td>
+
+    <td>
+      <div class="icon">
+        <img
+          class="update"
+          src="/assets/images/update.png"
+          (click)="changeEditor(true)"
+        />
+      </div>
+    </td>
+    <td>
+      <div class="icon">
+        <img
+          class="delete"
+          src="/assets/images/delete.png"
+          (click)="onDelete(todo.id)"
+        />
+      </div>
+    </td>
+
+    <div *ngIf="showEditor">
+      <app-editor [todo]="todo" [changeEditor]="changeEditor"> </app-editor>
+    </div>
+  </tr>
+</table>

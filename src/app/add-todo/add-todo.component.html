@@ -1,0 +1,22 @@
+<div class="content">
+  <h2>Add To Do</h2>
+
+  <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+    <div class="item">
+      <label class="label">Description</label>
+      <input class="input" formControlName="description" required />
+    </div>
+
+    <div class="item">
+      <label class="label">Date Due</label>
+      <input class="input" type="date" formControlName="date" required />
+    </div>
+
+    <div class="item">
+      <label class="label">Time Due</label>
+      <input class="input" type="time" formControlName="time" required />
+    </div>
+
+    <button type="submit">Add</button>
+  </form>
+</div>

@@ -1,0 +1,28 @@
+<main>
+  <div class="editor">
+    <img
+      class="close"
+      src="/assets/images/close.png"
+      (click)="changeEditor(false)"
+    />
+
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit(todo)">
+      <div class="item">
+        <label class="label">Description</label>
+        <input class="input" formControlName="description" required />
+      </div>
+
+      <div class="item">
+        <label class="label">Date Due</label>
+        <input class="input" type="date" formControlName="date" required />
+      </div>
+
+      <div class="item">
+        <label class="label">Time Due</label>
+        <input class="input" type="time" formControlName="time" required />
+      </div>
+
+      <button type="submit">Save</button>
+    </form>
+  </div>
+</main>

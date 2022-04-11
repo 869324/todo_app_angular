@@ -1,0 +1,18 @@
+main {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  width: 30%;
+  min-height: 20%;
+  border-radius: 10px;
+  background-color: rgb(230, 230, 230);
+}

@@ -1,0 +1,48 @@
+h2 {
+  color: teal;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+}
+
+td,
+th {
+  text-align: start;
+}
+
+th {
+  color: teal;
+}
+
+td {
+  color: whitesmoke;
+  margin-top: 5px;
+}
+
+.iconHeader {
+  text-align: center;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.update {
+  width: 20px;
+  height: 20px;
+  margin: auto;
+}
+
+.delete {
+  width: 20px;
+  height: 20px;
+  margin: auto;
+}
+
+input {
+  transform: scale(1.5);
+}

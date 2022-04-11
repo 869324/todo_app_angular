@@ -1,0 +1,18 @@
+<main>
+  <div class="popup" (click)="dismiss()">
+    <h2 *ngIf="title !== ''">{{ title }}</h2>
+
+    <label *ngIf="text !== ''">{{ text }}</label>
+
+    <img *ngIf="text !== ''" />
+
+    <button *ngIf="showCancel" (click)="dismiss()">
+      {{ cancelText == "" ? "Cancel" : cancelText }}
+    </button>
+
+    <button *ngIf="showOk" (click)="onOk()">
+      {{ okText == "" ? "Ok" : okText }}
+    </button>
+  </div>
+</main>
+>
