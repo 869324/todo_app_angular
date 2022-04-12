@@ -1,5 +1,12 @@
 <h2>Todos</h2>
 
+<app-popup
+  *ngIf="showPopup"
+  (dismiss)="closePopup()"
+  (okay)="okay($event)"
+  [data]="data"
+></app-popup>
+
 <table>
   <tr>
     <th>No.</th>
@@ -31,7 +38,7 @@
         <img
           class="update"
           src="/assets/images/update.png"
-          (click)="changeEditor(true)"
+          (click)="changeEditor(todo.id)"
         />
       </div>
     </td>
@@ -45,8 +52,11 @@
       </div>
     </td>
 
-    <div *ngIf="showEditor">
-      <app-editor [todo]="todo" [changeEditor]="changeEditor"> </app-editor>
-    </div>
+    <app-editor
+      *ngIf="editId == todo.id"
+      [todo]="todo"
+      (changeEditor)="changeEditor()"
+    >
+    </app-editor>
   </tr>
 </table>

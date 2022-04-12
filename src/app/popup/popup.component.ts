@@ -1,4 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  faCheck,
+  faXmarkCircle,
+  faExclamationCircle,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-popup',
@@ -6,21 +11,30 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./popup.component.css'],
 })
 export class PopupComponent implements OnInit {
-  @Input() title = '';
-  @Input() text = '';
-  @Input() icon = '';
-  @Input() showOk = false;
-  @Input() showCancel = false;
-  @Input() okText = '';
-  @Input() cancelText = '';
+  @Input() data = {
+    id: '',
+    title: '',
+    text: '',
+    icon: '',
+    showOk: false,
+    showCancel: false,
+    okText: '',
+    cancelText: '',
+  };
+
+  @Output() dismiss = new EventEmitter();
+  @Output() okay = new EventEmitter();
+
+  faCheck = faCheck;
+  faError = faXmarkCircle;
+  faWarning = faExclamationCircle;
 
   constructor() {}
 
   onOk = () => {
-    return true;
+    //this.dismiss.emit();
+    this.okay.emit(this.data.id);
   };
-
-  dismiss() {}
 
   ngOnInit(): void {}
 }

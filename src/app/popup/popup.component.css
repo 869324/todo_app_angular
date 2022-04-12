@@ -15,4 +15,112 @@ main {
   min-height: 20%;
   border-radius: 10px;
   background-color: rgb(230, 230, 230);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  animation: popup;
+  animation-duration: 400ms;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+
+h2 {
+  text-align: center;
+}
+
+.success,
+.error,
+.warning {
+  margin: 30px;
+  transform: scale(5);
+  animation: rotate;
+  animation-duration: 400ms;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: orangered;
+}
+
+.warning {
+  color: orange;
+}
+
+label {
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+button {
+  margin: 10px;
+  font-weight: bold;
+}
+
+.ok {
+  border: none;
+  border-radius: 5px;
+  padding: 7px 20px;
+  background-color: rgb(13, 94, 194);
+}
+
+.ok:hover {
+  background-color: rgb(4, 83, 178);
+}
+
+.cancel {
+  border: none;
+  border-radius: 5px;
+  padding: 7px 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.cancel:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@keyframes popup {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  75% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  50% {
+    transform: rotate(180);
+  }
+
+  75% {
+    transform: rotate(-45);
+  }
 }

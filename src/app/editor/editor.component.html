@@ -3,7 +3,7 @@
     <img
       class="close"
       src="/assets/images/close.png"
-      (click)="changeEditor(false)"
+      (click)="changeEditor.emit(false)"
     />
 
     <form [formGroup]="editForm" (ngSubmit)="onSubmit(todo)">

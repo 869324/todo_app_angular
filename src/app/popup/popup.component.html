@@ -1,18 +1,35 @@
-<main>
-  <div class="popup" (click)="dismiss()">
-    <h2 *ngIf="title !== ''">{{ title }}</h2>
+<main (click)="dismiss.emit()">
+  <div class="popup">
+    <h2 *ngIf="data.title !== ''">{{ data.title }}</h2>
 
-    <label *ngIf="text !== ''">{{ text }}</label>
+    <fa-icon
+      class="success"
+      *ngIf="data.icon == 'success'"
+      [icon]="faCheck"
+    ></fa-icon>
 
-    <img *ngIf="text !== ''" />
+    <fa-icon
+      class="error"
+      *ngIf="data.icon == 'error'"
+      [icon]="faError"
+    ></fa-icon>
 
-    <button *ngIf="showCancel" (click)="dismiss()">
-      {{ cancelText == "" ? "Cancel" : cancelText }}
-    </button>
+    <fa-icon
+      class="warning"
+      *ngIf="data.icon == 'warning'"
+      [icon]="faWarning"
+    ></fa-icon>
 
-    <button *ngIf="showOk" (click)="onOk()">
-      {{ okText == "" ? "Ok" : okText }}
-    </button>
+    <label *ngIf="data.text !== ''">{{ data.text }}</label>
+
+    <div class="buttons">
+      <button class="cancel" *ngIf="data.showCancel" (click)="dismiss.emit()">
+        {{ data.cancelText == "" ? "Cancel" : data.cancelText }}
+      </button>
+
+      <button class="ok" *ngIf="data.showOk" (click)="onOk()">
+        {{ data.okText == "" ? "Ok" : data.okText }}
+      </button>
+    </div>
   </div>
 </main>
->

@@ -1,5 +1,5 @@
 import { UtilsService } from './../utils.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { StoreService } from '../store.service';
 
@@ -12,7 +12,7 @@ import { Todo } from 'src/Interfaces/interfaces';
 })
 export class EditorComponent implements OnInit {
   @Input() todo!: Todo;
-  @Input() changeEditor!: Function;
+  @Output() changeEditor = new EventEmitter<boolean>();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -31,8 +31,8 @@ export class EditorComponent implements OnInit {
       ...todo,
       ...this.editForm.value,
     });
-
-    this.changeEditor(false);
+    this.editForm.reset();
+    this.changeEditor.emit();
   };
 
   ngOnInit(): void {
